@@ -27,6 +27,7 @@ body {
     padding: 0.5rem 5%;
     max-width: 1400px;
     margin: 0 auto;
+    height: 100%;
 }
 
 .logo-container {
@@ -41,6 +42,7 @@ body {
 .nav-links {
     display: flex;
     gap: 2rem;
+    align-items: center;
 }
 
 .nav-links a {
@@ -166,8 +168,8 @@ body {
 .mobile-menu-btn span {
     display: block;
     width: 25px;
-    height: 2px;
-    background: #333;
+    height: 3px;
+    background-color: #FF8C00;
     margin: 5px 0;
     transition: all 0.3s ease;
 }
@@ -184,6 +186,10 @@ body {
     background-color: #f0a500;
 }
 
+.mobile-menu-btn.open span {
+    background-color: #FF8C00;
+}
+
 @media screen and (max-width: 768px) {
     .mobile-menu-btn {
         display: block;
@@ -196,17 +202,23 @@ body {
         right: -100%;
         height: 100vh;
         width: 75%;
-        background: rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        border-left: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(51, 51, 51, 0.65);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
-        padding: 60px 0;
+        padding-top: 80px;
+        padding-bottom: 30px;
         gap: 2.5rem;
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1000;
+        background: linear-gradient(
+            to bottom,
+            rgba(51, 51, 51, 0.68) 0%,
+            rgba(51, 51, 51, 0.65) 100%
+        );
     }
 
     .nav-links.active {
@@ -214,14 +226,14 @@ body {
     }
 
     .nav-links a {
-        color: #000;
+        color: #f0a500;
         font-weight: 600;
         font-size: 1.2rem;
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 15px 30px;
         border-radius: 8px;
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.05);
         width: 80%;
         text-align: center;
         transition: all 0.3s ease;
@@ -229,6 +241,7 @@ body {
 
     .nav-links a:hover {
         background: rgba(240, 165, 0, 0.1);
+        color: #f0a500;
         transform: translateY(-2px);
     }
 
@@ -253,6 +266,10 @@ body {
     .mobile-menu-btn.active span:nth-child(3) {
         transform: rotate(-45deg) translate(5px, -5px);
         background: #f0a500;
+    }
+
+    .overlay.active {
+        background: rgba(0, 0, 0, 0.5);
     }
 }
 
@@ -1326,4 +1343,42 @@ body {
     to {
         transform: translate(-50%, -50%) rotate(360deg);
     }
+}
+
+/* Add these new styles for the message header */
+.message-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.mail-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.message-text {
+    flex: 1;
+}
+
+.message-text h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.message-text p {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Update existing form container styles */
+.form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 }
